@@ -1,0 +1,175 @@
+if &compatible
+    set nocompatible
+endif
+
+"______________________________________________________________________________
+" PLUGINS
+"
+
+call plug#begin(stdpath('data') . '/plugged') " specifies plugin directory
+
+Plug 'neovim/nvim-lspconfig'
+
+Plug 'hrsh7th/vim-vsnip'
+Plug 'hrsh7th/vim-vsnip-integ'
+let vsnip_snippet_dir = stdpath('data') . '/snippets'
+
+Plug 'nvim-lua/completion-nvim'
+
+Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}  " also update parsers when updating plugin
+
+Plug 'nvim-treesitter/completion-treesitter'
+Plug 'steelsojka/completion-buffers'
+
+Plug 'jiangmiao/auto-pairs'
+Plug 'p00f/nvim-ts-rainbow'
+
+call plug#end()
+
+
+"______________________________________________________________________________
+" GENERAL SETTINGS
+"
+
+filetype plugin indent on " enable filetype detection
+syntax enable " enable syntax highlighting
+set hidden " hides buffers when opening new ones instead of just closing them
+set scrolloff=7 " always keep cursor between 7 lines
+set title " change terminal's title
+set diffopt+=vertical " open diffs in a vertical split
+set wrap " enable line wrapping
+set signcolumn=yes " always enable gutter
+set mouse=nv " enable mouse support on normal and visual modes
+set complete=.,w,b,u " makes autocompletion faster
+set inccommand=nosplit " show a command's output as you type
+set nobackup noswapfile nowritebackup " disable annoying backup features
+set number relativenumber " show line numbers
+set autoread " re-reads a file when detecting changes outside of vim
+set splitright splitbelow " opens new buffers in a sensible way
+
+if (has("termguicolors")) " enable gui colors
+	set termguicolors
+endif
+
+
+" INDENTATION:
+filetype indent off " filetype does not override indentation
+set noexpandtab " use spaces
+set tabstop=4 shiftwidth=4 " set indentation size
+set list listchars=tab:>\ 
+
+
+" BRACKET MATCHING:
+set showmatch " show matching brackets
+set matchtime=0 " disable blinking matches
+
+
+" SEARCHING:
+set ignorecase smartcase " ignore case while searching when pattern is all lowercase
+set hlsearch " highlight search results
+set incsearch " show matches as you type
+
+
+" COMPLETION:
+set completeopt=menuone,noinsert,noselect " set default completion options
+set shortmess+=c " avoid extra messages when using completion
+let completion_enable_snippet = 'vim-vsnip'
+let completion_auto_change_source = 1 " auto change completion sources when there are no completion items
+let completion_chain_complete_list = {
+	\'default' : {
+	\	'default' : [
+	\		{'complete_items': ['lsp', 'snippet']},
+	\		{'complete_items': ['ts', 'snippet']},
+	\		{'complete_items': ['snippet']},
+	\		{'mode': '<c-n>'}
+	\	],
+	\	'comment' : [
+	\		{'complete_items': ['buffers']}
+	\	],
+	\	'string' : []
+	\}
+\}
+
+
+" PROVIDERS
+let python3_host_prog = "/usr/bin/python3"
+let loaded_python_provider = 0 " disable python2 support
+let loaded_ruby_provider = 0 " disable ruby support
+let loaded_perl_provider = 0 " disable perl support
+let loaded_node_provider = 0 " disable nodejs support
+
+"______________________________________________________________________________
+" AUTOCMDS
+"
+
+augroup numbertoggle " enable relative line numbers on normal mode, disable it on insert
+	autocmd!
+	autocmd BufEnter,FocusGained,InsertLeave * set relativenumber
+	autocmd BufLeave,FocusLost,InsertEnter * set norelativenumber
+augroup END
+
+augroup forcereread " forces autoread
+	autocmd!
+	autocmd FocusGained,BufEnter * checktime
+augroup END
+
+augroup enablecompletion 
+	autocmd!
+	autocmd BufEnter * lua require'completion'.on_attach()
+augroup END
+
+
+"______________________________________________________________________________
+" MAPPING
+"
+
+" set leader to space bar
+let mapleader = " " 
+
+
+" NORMAL MODE:
+
+" clear any highlighting
+nnoremap <silent> <esc><esc> :nohls<CR>
+
+" makes it quicker to run any command
+nnoremap ; : 
+
+" quickly edit and source init.vim
+nnoremap <leader>ev :edit $MYVIMRC<CR>
+nnoremap <leader>sv :source $MYVIMRC<CR>
+
+" move up and down by row and not by line. makes it easier to navigate with wrapping on
+nnoremap j gj
+nnoremap k gk
+
+
+" INSERT MODE:
+
+" scroll through completion with tab
+inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
+inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
+" use <C-Space> to open and close the completion popup
+imap <expr> <C-Space> pumvisible() ?  "\<C-e>" : "<Plug>(completion_trigger)"
+" switch between completion sources
+imap <expr> <c-j> pumvisible() ? "<Plug>(completion_next_source)" : "\<c-j>"
+imap <expr> <c-k> pumvisible() ? "<Plug>(completion_prev_source)" : "\<c-k>"
+
+
+"______________________________________________________________________________
+" LUA
+"
+
+lua << EOF
+	local LSP = require'lspconfig'
+
+	LSP.rust_analyzer.setup {}
+	LSP.bashls.setup {}
+
+require'nvim-treesitter.configs'.setup {
+	highlight = { enable = true },
+	indent = { enable = false },
+	rainbow = { enable = true }
+}
+
+EOF

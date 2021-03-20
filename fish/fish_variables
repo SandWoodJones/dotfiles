@@ -1,0 +1,53 @@
+# This file contains fish universal variable definitions.
+# VERSION: 3.0
+SETUVAR --export 1:1
+SETUVAR --export BROWSER:firefox\x2dnightly
+SETUVAR --export CARGO_HOME:/home/swjones/\x2elocal/share/cargo
+SETUVAR --export EDITOR:nvim
+SETUVAR --export GPG_TTY:/dev/pts/0
+SETUVAR --export GRADLE_USER_HOME:/home/swjones/\x2elocal/share/gradle
+SETUVAR --export JAVA_OPTS:\x2d\x2dadd\x2dopens\x20java\x2ebase/java\x2eutil\x3dALL\x2dUNNAMED
+SETUVAR --export LESSKEY:/home/swjones/\x2econfig/less
+SETUVAR --export MOZ_ENABLE_WAYLAND:1
+SETUVAR --export MYVIMRC:/home/swjones/\x2econfig/nvim/init\x2elua
+SETUVAR --export --path PATH:/home/swjones/\x2ebin/\x1e/usr/local/sbin\x1e/usr/local/bin\x1e/usr/bin\x1e/usr/bin/site_perl\x1e/usr/bin/vendor_perl\x1e/usr/bin/core_perl\x1e/home/swjones/\x2elocal/share/cargo/bin
+SETUVAR --export RUSTUP_HOME:/home/swjones/\x2elocal/share/rustup
+SETUVAR --export WGETRC:/home/swjones/\x2econfig/wgetrc
+SETUVAR --export WINEPREFIX:/home/swjones/\x2elocal/share/wine/
+SETUVAR --export XAUTHORITY:/home/swjones/\x2econfig/Xauthority
+SETUVAR --export XDG_CONFIG_HOME:/home/swjones/\x2econfig
+SETUVAR --export XDG_CURRENT_DESKTOP:sway
+SETUVAR --export XDG_MUSIC_DIR:/home/swjones/media/music
+SETUVAR __fish_initialized:3100
+SETUVAR fish_color_autosuggestion:brblack
+SETUVAR fish_color_cancel:\x2dr
+SETUVAR fish_color_command:brgreen
+SETUVAR fish_color_comment:bryellow
+SETUVAR fish_color_cwd:green
+SETUVAR fish_color_cwd_root:red
+SETUVAR fish_color_end:brmagenta
+SETUVAR fish_color_error:red
+SETUVAR fish_color_escape:brcyan
+SETUVAR fish_color_history_current:\x2d\x2dbold
+SETUVAR fish_color_host:normal
+SETUVAR fish_color_host_remote:yellow
+SETUVAR fish_color_match:brcyan
+SETUVAR fish_color_normal:normal
+SETUVAR fish_color_operator:brcyan
+SETUVAR fish_color_param:brwhite
+SETUVAR fish_color_quote:bryellow
+SETUVAR fish_color_redirection:brwhite
+SETUVAR fish_color_search_match:bryellow\x1e\x2d\x2dbackground\x3dbrblack
+SETUVAR fish_color_selection:white\x1e\x2d\x2dbold\x1e\x2d\x2dbackground\x3dbrblack
+SETUVAR fish_color_status:red
+SETUVAR fish_color_user:brgreen
+SETUVAR fish_color_valid_path:\x2d\x2dunderline
+SETUVAR fish_greeting:\x1d
+SETUVAR fish_key_bindings:fish_default_key_bindings
+SETUVAR fish_pager_color_completion:normal
+SETUVAR fish_pager_color_description:B3A06D\x1eyellow
+SETUVAR fish_pager_color_prefix:white\x1e\x2d\x2dbold\x1e\x2d\x2dunderline
+SETUVAR fish_pager_color_progress:brwhite\x1e\x2d\x2dbackground\x3dcyan
+SETUVAR fish_prompt_pwd_dir_length:3
+SETUVAR --export fish_term24bit:1
+SETUVAR fish_user_paths:/home/swjones/\x2ebin/\x1e/home/swjones/\x2elocal/share/cargo\x1e/home/swjones/\x2elocal/share/bin\x1e/home/swjones/\x2elocal/bin/

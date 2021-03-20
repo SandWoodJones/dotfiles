@@ -1,0 +1,12 @@
+let g:netrw_dirhistmax  =10
+let g:netrw_dirhistcnt =3
+let g:netrw_dirhist_3='/etc/nginx/sites-enabled'
+let g:netrw_dirhist_2='/etc/xdg/autostart'
+let g:netrw_dirhist_1='/home/swjones/documents/app files/dwm-6.2'
+let g:netrw_dirhist_0='/home/swjones/documents/app files/st-0.8.4/.git'
+let g:netrw_dirhist_9='/home/swjones/.config/xfce4/xfconf'
+let g:netrw_dirhist_8='/home/swjones/.config/polybar'
+let g:netrw_dirhist_7='/home/swjones/.config/polybar/themes/mouth_dreams'
+let g:netrw_dirhist_6='/home/swjones/.config/awesome'
+let g:netrw_dirhist_5='/etc/cron.daily'
+let g:netrw_dirhist_4='/etc/cron.weekly'
