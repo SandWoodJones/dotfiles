@@ -5,3 +5,4 @@ local cmdfile = readFileToString(vim.fn.stdpath("config") .. "/lua/commands/comm
 
 if vim.api.nvim_exec(aufile, true) and vim.api.nvim_exec(cmdfile, true) then return true
 else return false end
+

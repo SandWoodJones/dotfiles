@@ -5,7 +5,7 @@
 
 
 --___________________________
--- MOVING AROUND:
+-- MOVING_AROUND:
 
 	-- Move up and down by row and not by line. makes it easier to navigate with wrapping on
 	map('n', 'k', 'gk')
@@ -24,12 +24,8 @@
 
 --___________________________
 -- EDITING:
-
-	-- Kill a line without storing it in the register
-	map('n', '<leader>d', '"_dd')
-
-	-- Delete characters without storing them in the register
-	map('n', 'x', '"_x')
+	map('n', '<leader>d', '"_dd')	-- Kill a line without storing it in the register
+	map('n', 'x', '"_x')	-- Delete characters without storing them in the register
 
 
 --___________________________
@@ -44,7 +40,8 @@
 
 --___________________________
 -- FILES:
+	map('n', '<Leader>ep', ':EditPlugins<CR>')	-- Edit the plugins file
 
-	-- Edit the plugins file
-	map('n', '<Leader>ep', ':EditPlugins<CR>')
-
+--___________________________
+-- APPEARANCE:
+	map('n', '<Leader>tw', ':set wrap!<CR>', {silent = true})	-- Toggle line-wrapping

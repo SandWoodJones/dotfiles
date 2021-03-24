@@ -10,6 +10,7 @@
 	opt('b', 'undofile', true)	-- Enable persistent undo, even after closing the file
 	opt('o', 'wildmode', 'longest,full')	-- Set the command-line completion mode
 	opt('o', 'completeopt', 'menuone,noinsert,noselect')	-- Set the insert-mode completion options
+	--opt('o', 'shell', '/usr/bin/env sh')	-- Sets the shell for compatibility
 
 
 --___________________________
