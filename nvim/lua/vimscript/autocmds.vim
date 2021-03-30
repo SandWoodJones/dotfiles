@@ -10,11 +10,3 @@ augroup highlightyank
 	autocmd!
 	autocmd TextYankPost * silent! lua vim.highlight.on_yank {timeout=50}
 augroup END
-
-" Always load Packer and recompile the plugins.lua file when editing it
-augroup packercompile
-	autocmd!
-	autocmd BufReadPre plugins.lua lua require('plugins')
-	autocmd BufWritePost plugins.lua PackerCompile
-augroup END
-

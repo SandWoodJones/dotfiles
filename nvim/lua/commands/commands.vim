@@ -1,1 +1,0 @@
-command EditPlugins lua EditPlugins()

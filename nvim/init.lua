@@ -1,13 +1,12 @@
----@diagnostic disable-next-line: undefined-global
 require('utils')
 
 require('settings')
 require('functions')
 require('keymaps')
 
+require('packages')
 -- Add Packer's compile path to runtime and execute it if it exists
-PackerCompilePath = vim.fn.stdpath('data')
-vim.cmd('let &runtimepath.=",' .. PackerCompilePath .. '"')
+vim.cmd('let &runtimepath.=",' .. vim.fn.stdpath('data') .. '"')
 vim.cmd('runtime packer_compiled.vim')
 
-assert(require('commands'), "Error executing commands")
+assert(LoadVimscript(), "Error loading vimscript files")

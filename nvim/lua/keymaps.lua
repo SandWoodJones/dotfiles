@@ -1,6 +1,6 @@
 
 -- LEADER:
-	map('n', '<Space>', '<NOP>')	-- Disable spacebar moving to next character
+	Map('n', '<Space>', '<NOP>')	-- Disable spacebar moving to next character
 	vim.g.mapleader = ' '	-- Map leader to spacebar
 
 
@@ -8,40 +8,42 @@
 -- MOVING_AROUND:
 
 	-- Move up and down by row and not by line. makes it easier to navigate with wrapping on
-	map('n', 'k', 'gk')
-	map('n', 'j', 'gj')
+	Map('n', 'k', 'gk')
+	Map('n', 'j', 'gj')
 
 	-- Enable holding ctrl to move between windows
-	map('n', '<c-h>', '<c-w>h')
-	map('n', '<c-j>', '<c-w>j')
-	map('n', '<c-k>', '<c-w>k')
-	map('n', '<c-l>', '<c-w>l')
+	Map('n', '<c-h>', '<c-w>h')
+	Map('n', '<c-j>', '<c-w>j')
+	Map('n', '<c-k>', '<c-w>k')
+	Map('n', '<c-l>', '<c-w>l')
 
 	-- Use tab on normal mode to switch the buffer
-	map('n', '<TAB>', ':bnext<CR>', {silent = true })
-	map('n', '<S-TAB>', ':bprevious<CR>', {silent = true})
+	Map('n', '<TAB>', ':bnext<CR>', {silent = true })
+	Map('n', '<S-TAB>', ':bprevious<CR>', {silent = true})
 
 
 --___________________________
 -- EDITING:
-	map('n', '<leader>d', '"_dd')	-- Kill a line without storing it in the register
-	map('n', 'x', '"_x')	-- Delete characters without storing them in the register
+	Map('n', '<leader>d', '"_dd')	-- Kill a line without storing it in the register
+	Map('n', 'x', '"_x')	-- Delete characters without storing them in the register
 
 
 --___________________________
 -- AUTO-COMPLETION:
 
 	-- Use <Tab> and <S-Tab> to navigate
-	map('i', '<Tab>', 'pumvisible() ? "<C-n>" : "<Tab>"', {expr = true})
-	map('i', '<S-Tab>', 'pumvisible() ? "<C-p>" : "<S-Tab>"', {expr = true})
+	Map('i', '<Tab>', 'pumvisible() ? "<C-n>" : "<Tab>"', {expr = true})
+	Map('i', '<S-Tab>', 'pumvisible() ? "<C-p>" : "<S-Tab>"', {expr = true})
 
 	-- Use <C-Space> to open and close the completion menu
-	map('i', '<C-Space>', 'pumvisible() ? "<C-e>" : "<Plug>(completion_trigger)"', {expr = true, noremap = false})
+	Map('i', '<C-Space>', 'pumvisible() ? "<C-e>" : "<Plug>(completion_trigger)"', {expr = true, noremap = false})
 
 --___________________________
 -- FILES:
-	map('n', '<Leader>ep', ':EditPlugins<CR>')	-- Edit the plugins file
+	Map('n', '<Leader>ep', ':EditPackages<CR>')	-- Edit the package manager file
+	Map('n', '<Leader>es', ':EditSettings<CR>')	-- Edit the settings file
+	Map('n', '<Leader>em', ':EditKeymaps<CR>')	-- Edit the keymaps file
 
 --___________________________
 -- APPEARANCE:
-	map('n', '<Leader>tw', ':set wrap!<CR>', {silent = true})	-- Toggle line-wrapping
+	Map('n', '<Leader>tw', ':set wrap!<CR>', {silent = true})	-- Toggle line-wrapping
