@@ -11,6 +11,7 @@ SETUVAR --export LESSKEY:/home/swjones/\x2econfig/less
 SETUVAR --export MOZ_ENABLE_WAYLAND:1
 SETUVAR --export MYVIMRC:/home/swjones/\x2econfig/nvim/init\x2elua
 SETUVAR --export --path PATH:/home/swjones/\x2elocal/bin\x1e/home/swjones/\x2ebin/\x1e/home/swjones/\x2elocal/share/cargo\x1e/home/swjones/\x2elocal/share/bin\x1e/home/swjones/\x2elocal/bin/\x1e/usr/local/sbin\x1e/usr/local/bin\x1e/usr/bin\x1e/usr/bin/site_perl\x1e/usr/bin/vendor_perl\x1e/usr/bin/core_perl
+SETUVAR --export QT_QPA_PLATFORM:xcb
 SETUVAR --export RUSTUP_HOME:/home/swjones/\x2elocal/share/rustup
 SETUVAR --export WGETRC:/home/swjones/\x2econfig/wgetrc
 SETUVAR --export WINEPREFIX:/home/swjones/\x2elocal/share/wine/

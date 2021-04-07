@@ -38,12 +38,21 @@
 	-- Use <C-Space> to open and close the completion menu
 	Map('i', '<C-Space>', 'pumvisible() ? "<C-e>" : "<Plug>(completion_trigger)"', {expr = true, noremap = false})
 
+
 --___________________________
 -- FILES:
 	Map('n', '<Leader>ep', ':EditPackages<CR>')	-- Edit the package manager file
 	Map('n', '<Leader>es', ':EditSettings<CR>')	-- Edit the settings file
 	Map('n', '<Leader>em', ':EditKeymaps<CR>')	-- Edit the keymaps file
 
+
+--___________________________
+-- PACKAGES:
+	Map('n', '<Leader>ps', ':PackerSync<CR>') -- Sync packages
+
+
 --___________________________
 -- APPEARANCE:
+	Map('n', '<Esc><Esc>', ':nohls<CR>', {silent = true}) -- Quickly clear search highlights
 	Map('n', '<Leader>tw', ':set wrap!<CR>', {silent = true})	-- Toggle line-wrapping
+	Map('n', '<Leader>tl', ':set list!<CR>', {silent = true})	-- Toggle displaying whitespace

@@ -26,14 +26,13 @@ use {'nvim-lua/completion-nvim', config = PluginConfig('completion-nvim')}
 -- Tree Sitter
 use {'nvim-treesitter/nvim-treesitter', run = ':TSUpdate', config = PluginConfig('nvim-treesitter')}
 use {'p00f/nvim-ts-rainbow', config = PluginConfig('nvim-ts-rainbow')} -- Rainbow brackets
-use 'romgrk/nvim-treesitter-context' -- Always shows the context the cursor is currently in
+--use 'romgrk/nvim-treesitter-context' -- Always shows the context the cursor is currently in
 
 use {'norcalli/nvim-colorizer.lua', config = PluginConfig('nvim-colorizer')} -- Color highlighter
 
-use 'jiangmiao/auto-pairs'
+use 'jiangmiao/auto-pairs' -- TODO: change this to another plugin. auto-pairs is outdated
 
 use 'psliwka/vim-smoothie' -- Smooth scrolling
-use {'Xuyuanp/scrollbar.nvim', config = PluginConfig('scrollbar-nvim')}
 
 use {'justinj/vim-pico8-syntax', ft = 'pico8'}
 
@@ -41,13 +40,5 @@ use {'unblevable/quick-scope', config = PluginConfig('quick-scope')} -- Highligh
 
 use {'AckslD/nvim-whichkey-setup.lua', requires = 'liuchengxu/vim-which-key', config = PluginConfig('which-key')} -- Displays available keybindings
 
-
--- Always recompile the packages.lua file after editing it
-vim.api.nvim_exec([[
-	augroup packercompile
-		autocmd!
-		autocmd BufWritePost packages.lua PackerCompile
-	augroup END
-]], true)
 
 return packer

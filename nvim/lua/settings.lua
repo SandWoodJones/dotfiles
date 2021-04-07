@@ -11,7 +11,6 @@
 	Opt('b', 'undofile', true)	-- Enable persistent undo, even after closing the file
 	Opt('o', 'wildmode', 'longest,full')	-- Set the command-line completion mode
 	Opt('o', 'completeopt', 'menuone,noinsert,noselect')	-- Set the insert-mode completion options
-	Opt('o', 'ruler', false) -- Disable the ruler since the scrollbar is on by default
 
 
 --___________________________
@@ -43,8 +42,8 @@
 --___________________________
 -- INDENTATION:
 	Opt('b', 'expandtab', false)	-- Use tabs for indentation
-	Opt('b', 'smartindent', true)	-- Enable autoindenting when starting a new line
-	Opt('o', 'shiftround', true)	-- Enable rounding to nearest multiple of shiftwidth when using '>>' and '<<'
+	Opt('o', 'shiftround', false)	-- Enable rounding to nearest multiple of shiftwidth when using '>>' and '<<'
+	-- TreeSitter will handle the rest of indentation settings
 
 	-- Set tab size to 4
 	Opt('b', 'tabstop', 4)
@@ -57,7 +56,7 @@
 
 --___________________________
 -- BACKUP:
-	-- Always backup while saving a file, but don't keep backup around
+	-- Always backup while saving a file, but don't keep backup files around
 	Opt('o', 'writebackup', true)
 	Opt('o', 'backup', false)
 

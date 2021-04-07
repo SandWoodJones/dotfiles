@@ -14,10 +14,15 @@ local leader_mappings = {
 		s = '`settings.lua` file',
 		m = '`keymaps.lua` file',
 	},
+	p = {
+		name = '+Packages...',
+		s = 'synchronize'
+	},
 	t = {
-		name = '+Quick toggle...',
+		name = '+Toggle...',
 		w = 'line wrapping',
-		b = 'scrollbar'
+		b = 'scrollbar',
+		l = 'display whitespace'
 	},
 	r = {
 		n = 'Rename symbol'
@@ -31,6 +36,6 @@ vim.api.nvim_exec([[
 	augroup Which-Key
 		autocmd!
 		autocmd! FileType which_key
-		autocmd FileType which_key set laststatus=0 noshowmode | autocmd BufLeave <buffer> set laststatus=2 showmode
+		autocmd FileType which_key set laststatus=0 noshowmode | autocmd BufLeave <buffer> set laststatus=2 showmode | echo ''
 	augroup END
 ]], true)
