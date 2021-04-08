@@ -4,6 +4,8 @@ require('settings')
 require('functions')
 require('keymaps')
 
+assert(LoadVimscript(), "Error loading vimscript files")
+
 require('packages')
 
 -- Always recompile the packages.lua file after editing it
@@ -18,4 +20,3 @@ vim.api.nvim_exec([[
 vim.cmd('let &runtimepath.=",' .. vim.fn.stdpath('data') .. '"')
 vim.cmd('runtime packer_compiled.vim')
 
-assert(LoadVimscript(), "Error loading vimscript files")
