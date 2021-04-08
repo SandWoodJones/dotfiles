@@ -1,0 +1,5 @@
+--format 'bestaudio'
+--extract-audio
+--restrict-filenames
+--audio-format "m4a"
+--output '${HOME}/downloads/%(title)s/%(title)s.%(ext)s'

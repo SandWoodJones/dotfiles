@@ -1,0 +1,5 @@
+-f 'bestvideo[height<=720]+bestaudio'
+--merge-output-format mp4
+
+-o '${HOME}/media/videos/%(title)s.%(ext)s'
+--restrict-filenames
