@@ -1,3 +1,4 @@
-function rm --wraps rm --description 'Removes files after prompt'
-	command rm -ri $argv
+# Defined via `source`
+function rm --description 'alias rm=rm -ri'
+ command rm -ri $argv; 
 end

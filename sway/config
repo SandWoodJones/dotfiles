@@ -45,6 +45,11 @@ output * bg ~/media/images/wallpapers/current fill
 # your displays after another 300 seconds, and turn your screens back on when
 # resumed. It will also lock your screen before your computer goes to sleep.
 
+### Window rules
+for_window [app_id="screenkey"] floating enable; border none
+for_window [class="Steam"] floating enable;
+for_window [class="Steam" instance="Steam" title="^Steam$"] floating disable;
+
 ### Input configuration
 #
 # Example configuration:
@@ -216,6 +221,9 @@ mode "resize" {
 }
 bindsym $mod+r mode "resize"
 
+# Notification
+exec mako
+
 #
 # Status Bar:
 #
@@ -240,10 +248,6 @@ bar {
 
 include /etc/sway/config.d/*
 
-# autostart pcmanfm in daemon mode
-exec pcmanfm -d
-# autostart specified .desktop files
-exec dex -a 
+# run autostart script
+exec ~/documents/scripts/gautostart.sh
 
-# Window rules
-for_window [app_id="screenkey"] floating enable; border none

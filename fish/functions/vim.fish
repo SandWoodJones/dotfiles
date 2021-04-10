@@ -1,3 +1,4 @@
-function vim --wraps nvim --description 'Alias for NeoVim'
-	command nvim $argv
+# Defined via `source`
+function vim --wraps=nvim --description 'alias vim=nvim'
+  nvim $argv; 
 end

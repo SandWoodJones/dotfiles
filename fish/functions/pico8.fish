@@ -1,3 +1,4 @@
-function pico8 --wraps pico8 --description 'Runs pico8 specifying the home directory'
-	command pico8 -home ~/.local/share/lexaloffle $argv
+# Defined via `source`
+function pico8 --description 'alias pico8=pico8 -home ~/.local/share/lexaloffle/'
+ command pico8 -home ~/.local/share/lexaloffle/ $argv; 
 end
