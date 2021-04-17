@@ -15,14 +15,16 @@ local leader_mappings = {
 		m = '`keymaps.lua` file',
 	},
 	p = {
-		name = '+Packages...',
-		s = 'synchronize'
+		s = 'synchronize packages'
 	},
 	t = {
 		name = '+Toggle...',
 		w = 'line wrapping',
 		b = 'scrollbar',
-		l = 'display whitespace'
+		l = 'display whitespace',
+		m = {
+			p = 'markdown preview'
+		}
 	},
 	r = {
 		n = 'Rename symbol'

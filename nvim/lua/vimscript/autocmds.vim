@@ -10,3 +10,9 @@ augroup highlightyank
 	autocmd!
 	autocmd TextYankPost * silent! lua vim.highlight.on_yank {timeout=50}
 augroup END
+
+" Markdown tab sizes differ from the renderer, using spaces to keep it constant
+augroup markdowntabexpand
+	autocmd!
+	autocmd BufEnter *.md silent! setlocal expandtab
+augroup END

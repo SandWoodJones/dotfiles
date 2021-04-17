@@ -56,7 +56,7 @@ local on_attach = function(client, bufnr)
 	vim.api.nvim_buf_set_option(bufnr, 'omnifunc', 'v:lua.vim.lsp.omnifunc')
 
 	-- Mappings
-	BMap(bufnr, 'n', '<leader>rn', '<Cmd>lua vim.lsp.buf.rename()<CR>', {silent = true})
+	BMap(bufnr, 'n', '<Leader>rn', '<Cmd>lua vim.lsp.buf.rename()<CR>', {silent = true})
 
 	-- Set autocommands conditional on server_capabilities
 	if client.resolved_capabilities.document_highlight then
@@ -85,7 +85,7 @@ local function setup_servers()
 	lsp_installer.setup()
 
 	local servers = lsp_installer.installed_servers()
-	table.insert(servers, "kotlin_language_server")
+	--table.insert(servers, "kotlin_language_server")
 
 	for _,server in pairs(servers) do
 		local config = make_config()

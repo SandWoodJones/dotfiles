@@ -46,7 +46,8 @@ output * bg ~/media/images/wallpapers/current fill
 # resumed. It will also lock your screen before your computer goes to sleep.
 
 ### Window rules
-for_window [app_id="screenkey"] floating enable; border none
+for_window [app_id="screenkey"] floating enable; border none;
+for_window [app_id="blueman-manager"] floating enable;
 for_window [class="Steam"] floating enable;
 for_window [class="Steam" instance="Steam" title="^Steam$"] floating disable;
 
@@ -65,8 +66,9 @@ for_window [class="Steam" instance="Steam" title="^Steam$"] floating disable;
         middle_emulation enabled
     }
 
-# hides cursor after not moving for 3 secs
-seat seat0 hide_cursor 3000
+# hides cursor after not moving for 3 secs. this actually removes the cursor completely instead of hiding it,
+# creates some problems. TODO: fix this.
+# seat seat0 hide_cursor 3000
 
 #
 # You can get the names of your inputs by running: swaymsg -t get_inputs
@@ -247,6 +249,9 @@ bar {
 }
 
 include /etc/sway/config.d/*
+
+# Export sway's environment variables
+exec systemctl --user import-environment; systemctl --user start graphical-session.target
 
 # run autostart script
 exec ~/documents/scripts/gautostart.sh
