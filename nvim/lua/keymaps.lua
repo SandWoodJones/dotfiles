@@ -29,17 +29,6 @@
 
 
 --___________________________
--- AUTO-COMPLETION:
-
-	-- Use <Tab> and <S-Tab> to navigate
-	Map('i', '<Tab>', 'pumvisible() ? "<C-n>" : "<Tab>"', {expr = true})
-	Map('i', '<S-Tab>', 'pumvisible() ? "<C-p>" : "<S-Tab>"', {expr = true})
-
-	-- Use <C-Space> to open and close the completion menu
-	Map('i', '<C-Space>', 'pumvisible() ? "<C-e>" : "<Plug>(completion_trigger)"', {expr = true, noremap = false})
-
-
---___________________________
 -- FILES:
 	Map('n', '<Leader>ep', ':EditPackages<CR>')	-- Edit the package manager file
 	Map('n', '<Leader>es', ':EditSettings<CR>')	-- Edit the settings file

@@ -42,7 +42,7 @@
 --___________________________
 -- INDENTATION:
 	Opt('b', 'expandtab', false)	-- Use tabs for indentation
-	Opt('o', 'shiftround', false)	-- Enable rounding to nearest multiple of shiftwidth when using '>>' and '<<'
+	Opt('o', 'shiftround', true)	-- Enable rounding to nearest multiple of shiftwidth when using '>>' and '<<'
 	-- TreeSitter will handle the rest of indentation settings
 
 	-- Set tab size to 4

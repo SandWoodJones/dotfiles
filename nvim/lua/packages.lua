@@ -13,9 +13,18 @@ packer.reset()
 
 use 'wbthomason/packer.nvim' -- Let Packer manage itself
 
-use { -- Snippets
-	'norcalli/snippets.nvim',
-	config = function() PluginConfig('snippets-nvim') end
+-- Snippets
+use {
+	'hrsh7th/vim-vsnip',
+	config = function() PluginConfig('vim-vsnip') end
+}
+use {
+	'hrsh7th/vim-vsnip-integ',
+	requires = 'hrsh7th/vim-vsnip'
+}
+use {
+	'rafamadriz/friendly-snippets',
+	requires = 'hrsh7th/vim-vsnip'
 }
 
 -- LSP
@@ -29,10 +38,16 @@ use { -- Icons for completion items
 	config = function() require('lspkind').init() end
 }
 
+use { -- Auto pairing
+	'cohama/lexima.vim',
+	config = function () PluginConfig('lexima-nvim') end
+}
+
 -- Completion
 use {
-	'nvim-lua/completion-nvim',
-	config = function() PluginConfig('completion-nvim') end
+	'hrsh7th/nvim-compe',
+	config = function() PluginConfig('nvim-compe') end,
+	after = 'lexima.vim'
 }
 
 -- Tree Sitter
@@ -52,8 +67,6 @@ use { -- Color highlighter
 	config = function () PluginConfig('nvim-colorizer') end
 }
 
-use 'jiangmiao/auto-pairs' -- TODO: change this to another plugin. auto-pairs is outdated
-
 use 'psliwka/vim-smoothie' -- Smooth scrolling
 
 use {
@@ -61,6 +74,11 @@ use {
 	ft = 'pico8'
 }
 
+-- Markdown
+use { -- Syntax, matching and mappings
+	'plasticboy/vim-markdown',
+	ft = 'markdown'
+}
 use { -- TODO: change markdown preview plugin to something that is compatible with github markdown.
 	'iamcco/markdown-preview.nvim',
 	run = 'cd app && yarn install',

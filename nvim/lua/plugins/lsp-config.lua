@@ -45,7 +45,7 @@ local server_configs = {lua = lua_settings, efm = efm_settings}
 
 
 -- Install missing servers:
-local required_servers = {"efm", "rust", "python", "vim", "bash", "lua"}
+local required_servers = {"efm", "rust", "python", "vim", "bash", "lua", "cpp", "cmake"}
 for _,server in pairs(required_servers) do
 	if not vim.tbl_contains(lsp_installer.installed_servers(), server) then
 		lsp_installer.install_server(server)
@@ -74,6 +74,13 @@ end
 local function make_config()
 	local capabilities = vim.lsp.protocol.make_client_capabilities()
 	capabilities.textDocument.completion.completionItem.snippetSupport = true
+	capabilities.textDocument.completion.completionItem.resolveSupport = {
+		properties = {
+			'documentation',
+			'detail',
+			'additionalTextEdits',
+		}
+	}
 	return {
 		capabilities = capabilities,
 		on_attach = on_attach

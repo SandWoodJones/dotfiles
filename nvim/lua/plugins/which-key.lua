@@ -9,13 +9,14 @@ Map('n', '<leader>', ':<c-u>WhichKey "<Space>"<CR>', {silent = true})
 local leader_mappings = {
 	d = 'delete line',
 	e = {
-		name = '+Open...',
+		name = '+Edit...',
 		p = '`packages.lua` file',
 		s = '`settings.lua` file',
 		m = '`keymaps.lua` file',
 	},
 	p = {
-		s = 'synchronize packages'
+		name = '+Packages...',
+		s = 'synchronize'
 	},
 	t = {
 		name = '+Toggle...',
