@@ -48,6 +48,7 @@ output * bg ~/media/images/wallpapers/current fill
 ### Window rules
 for_window [app_id="screenkey"] floating enable; border none;
 for_window [app_id="blueman-manager"] floating enable;
+for_window [app_id="pavucontrol"] floating enable;
 for_window [class="Steam"] floating enable;
 for_window [class="Steam" instance="Steam" title="^Steam$"] floating disable;
 
@@ -254,5 +255,5 @@ include /etc/sway/config.d/*
 exec systemctl --user import-environment; systemctl --user start graphical-session.target
 
 # run autostart script
-exec ~/documents/scripts/gautostart.sh
+exec ~/documents/sh_scripts/gautostart.sh
 
