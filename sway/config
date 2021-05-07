@@ -101,6 +101,12 @@ for_window [class="Steam" instance="Steam" title="^Steam$"] floating disable;
     # Exit sway (logs you out of your Wayland session)
     bindsym $mod+Shift+e exec swaynag -t warning -m 'You pressed the exit shortcut. Do you really want to exit sway? This will end your Wayland session.' -b 'Yes, exit sway' 'swaymsg exit'
 
+    # Save a selected region of a screenshot to clipboard
+    bindsym Print exec grim -g "$(slurp -d)" - | wl-copy -t image/png
+    # Save a screenshot of the focused monitor to disk
+    bindsym Shift+Print exec grim -o $(swaymsg -t get_outputs | jq -r '.[] | select(.focused) | .name') $(xdg-user-dir PICTURES)/screenshots/$(date +'%s.png')
+
+
 #
 # Special Keys:
 #
