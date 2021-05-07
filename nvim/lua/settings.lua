@@ -11,11 +11,12 @@
 	Opt('b', 'undofile', true)	-- Enable persistent undo, even after closing the file
 	Opt('o', 'wildmode', 'longest,full')	-- Set the command-line completion mode
 	Opt('o', 'completeopt', 'menuone,noinsert,noselect')	-- Set the insert-mode completion options
+	Opt('o', 'wildignorecase', true)	-- Ignore case when autocompleting filenames
 
 
 --___________________________
 -- WRAPPING:
-	Opt('w', 'wrap', true)	-- Enable line wrapping
+	Opt('w', 'wrap', false)	-- Disable line wrapping by default
 	Opt('w', 'linebreak', true)	-- Enable line breaks at whitespace instead of the middle of words
 
 --___________________________

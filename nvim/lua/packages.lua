@@ -13,6 +13,25 @@ packer.reset()
 
 use 'wbthomason/packer.nvim' -- Let Packer manage itself
 
+-- PLUGINS:
+
+-- LSP
+use {
+	'neovim/nvim-lspconfig',
+	config = function() PluginConfig('lsp-config') end
+}
+use 'kabouzeid/nvim-lspinstall' -- Auto installs and updates language servers
+use { -- Icons for completion items
+	'onsails/lspkind-nvim',
+	config = function() require('lspkind').init() end
+}
+
+-- Completion
+use {
+	'hrsh7th/nvim-compe',
+	config = function() PluginConfig('nvim-compe') end,
+}
+
 -- Snippets
 use {
 	'hrsh7th/vim-vsnip',
@@ -27,29 +46,6 @@ use {
 	requires = 'hrsh7th/vim-vsnip'
 }
 
--- LSP
-use {
-	'neovim/nvim-lspconfig',
-	config = function() PluginConfig('lsp-config') end
-}
-use 'kabouzeid/nvim-lspinstall' -- Auto installs and updates language servers
-use { -- Icons for completion items
-	'onsails/lspkind-nvim',
-	config = function() require('lspkind').init() end
-}
-
-use { -- Auto pairing
-	'cohama/lexima.vim',
-	config = function () PluginConfig('lexima-nvim') end
-}
-
--- Completion
-use {
-	'hrsh7th/nvim-compe',
-	config = function() PluginConfig('nvim-compe') end,
-	after = 'lexima.vim'
-}
-
 -- Tree Sitter
 use {
 	'nvim-treesitter/nvim-treesitter',
@@ -62,12 +58,19 @@ use {  -- Rainbow brackets
 }
 use 'romgrk/nvim-treesitter-context' -- Always shows the context the cursor is currently in
 
+-- Auto Pairing
+use {
+	'windwp/nvim-autopairs',
+	config = function () PluginConfig('nvim-autopairs') end
+}
+
+
 use { -- Color highlighter
 	'norcalli/nvim-colorizer.lua',
 	config = function () PluginConfig('nvim-colorizer') end
 }
 
-use 'psliwka/vim-smoothie' -- Smooth scrolling
+use 'psliwka/vim-smoothie' -- Smooth scrolling. TODO: Check out neoscroll.vim
 
 use {
 	'justinj/vim-pico8-syntax',
@@ -92,10 +95,11 @@ use { -- Highlights characters for easier moving use with 'f' or 't'
 }
 
 use { -- Displays available leader keybindings
-	'AckslD/nvim-whichkey-setup.lua',
-	requires = 'liuchengxu/vim-which-key',
+	'folke/which-key.nvim',
 	config = function() PluginConfig('which-key') end
 }
+
+use 'tikhomirov/vim-glsl' -- Syntax highlighting for shader files
 
 
 return packer

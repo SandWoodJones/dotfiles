@@ -4,13 +4,14 @@ require('compe').setup {
 	preselect = false,
 
 	source = {
-		path = true,
-		vsnip = true,
-		nvim_lsp = true,
+		path = {kind = "   (Path)"},
+		buffer = {kind = "   (Buffer)"},
+		calc = {kind = "   (Calc)"},
+		vsnip = {kind = "   (Snippet)"},
+		nvim_lsp = {kind = "   (LSP)"},
 	}
 }
 
-vim.fn['lexima#set_default_rules']()
 -- Use <C-Space> to toggle the completion menu
 Map('i', '<C-Space>', 'pumvisible() ? compe#close("<C-Space") : compe#complete()', {expr = true, silent = true})
 Map('i', '<CR>', 'compe#confirm("<CR>")', {expr = true, silent = true})
@@ -24,13 +25,17 @@ local check_back_space = function()
 	end
 end
 
+local rt = function(str)
+	return vim.api.nvim_replace_termcodes(str, true, true, true)
+end
+
 _G.tab_complete = function()
   if vim.fn.pumvisible() == 1 then
-		return vim.api.nvim_replace_termcodes("<C-n>", true, true, true)
+		return rt "<C-n>"
 	elseif vim.fn.call("vsnip#available", {1}) == 1 then
-		return vim.api.nvim_replace_termcodes("<Plug>(vsnip-expand-or-jump)", true, true, true)
+		return rt "<Plug>(vsnip-expand-or-jump)"
 	elseif check_back_space() then
-		return vim.api.nvim_replace_termcodes("<Tab>", true, true, true)
+		return rt "<Tab>"
 	else
 		return vim.fn['compe#complete']()
 	end
@@ -38,11 +43,11 @@ end
 
 _G.s_tab_complete = function() -- Shift-Tab
 	if vim.fn.pumvisible() == 1 then
-		return vim.api.nvim_replace_termcodes("<C-p>", true, true, true)
+		return rt "<C-p>"
 	elseif vim.fn.call("vsnip#jumpable", {-1}) == 1 then
-		return vim.api.nvim_replace_termcodes("<Plug>(vsnip-jump-prev)", true, true, true)
+		return rt "<Plug>(vsnip-jump-prev)"
 	else
-		return vim.api.nvim_replace_termcodes("<S-Tab>", true, true, true)
+		return rt "<S-Tab>"
 	end
 end
 
